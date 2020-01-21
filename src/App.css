@@ -103,3 +103,10 @@
     margin: auto;
     width: 1500px;
 }
+
+.row{
+    margin-left: 0;
+    margin: auto;
+    justify-content: center;
+    
+}

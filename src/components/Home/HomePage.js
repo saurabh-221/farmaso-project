@@ -83,8 +83,8 @@ https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               /> */}
-                <h5 className="font-weight-bold mt-4 mb-3">John Doe</h5>
-                <p className="text-uppercase blue-text">Web Developer</p>
+                <h5 className="font-weight-bold mt-4 mb-3">Saurabh Jain</h5>
+                <p className="text-uppercase blue-text">Software Developer</p>
                 <p className="grey-text">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   ipsa accusantium doloremque rem laudantium totam aperiam.
@@ -107,8 +107,8 @@ https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               /> */}
-                <h5 className="font-weight-bold mt-4 mb-3">Maria Smith</h5>
-                <p className="text-uppercase blue-text">Photographer</p>
+                <h5 className="font-weight-bold mt-4 mb-3">Vishnu Vardhan</h5>
+                <p className="text-uppercase blue-text">Software Developer</p>
                 <p className="grey-text">
                   Excepteur sint occaecat cupidatat non proident, sunt in culpa
                   qui officia deserunt mollit anim est fugiat nulla id eu laborum.
