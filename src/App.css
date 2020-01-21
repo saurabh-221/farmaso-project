@@ -96,3 +96,10 @@
     border-color: #007bff;
     /* left: 30px; */
 }
+.view{
+    top: -12px;
+}
+.my-5{
+    margin: auto;
+    width: 1500px;
+}
