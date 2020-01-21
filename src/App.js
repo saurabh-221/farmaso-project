@@ -16,6 +16,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
       <Header/>
+      <div className="space"></div>
       <Switch>
         <Route path="/" component={HomePage} exact/>
         <Route path="/product" component={ProductPage}/>

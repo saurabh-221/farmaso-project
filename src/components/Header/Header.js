@@ -1,30 +1,56 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBFormInline } from "mdbreact";
 
-export default function Header() {
+function Header() {
     return (
-        <header>
-            <h3>Farmaso</h3>
-            <ul>
-                <Link to="/home">
-                    <li>Home</li>
-                </Link>
-                <Link to="/product">
-                    <li>Products</li>
-                </Link>
-                <Link to="/about-us">
-                    <li>About</li>
-                </Link>
-                <Link to="/contact">
-                    <li>Contact</li>
-                </Link>
-                <Link to="/sign-Up">
-                    <li>SignUp</li>
-                </Link>
-                <Link to="/log-in">
-                    <li>LogIn</li>
-                </Link>
-            </ul>
+        <header className="mb-5">
+            <MDBNavbar
+                color="primary-color"
+                dark
+                expand="md"
+                fixed="top"
+                scrolling
+            >
+                <MDBNavbarBrand>
+                    <strong className="white-text">Farmaso</strong>
+                </MDBNavbarBrand>
+                <MDBNavbarNav left>
+                    <MDBNavItem active>
+                        <MDBNavLink to="/">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                        <MDBNavLink to="/product">Products</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                        <MDBNavLink to="/about-us">About Us</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                        <MDBNavLink to="/contact">Contact Us</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                        <MDBNavLink to="/sign-Up">SignUp</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                        <MDBNavLink to="/log-in">LogIn</MDBNavLink>
+                    </MDBNavItem>
+                </MDBNavbarNav>
+                <MDBNavbarNav right>
+                    <MDBNavItem>
+                        <MDBFormInline waves>
+                            <div className="md-form my-0">
+                                <input
+                                    className="form-control mr-sm-2"
+                                    type="text"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                />
+                            </div>
+                        </MDBFormInline>
+                    </MDBNavItem>
+                </MDBNavbarNav>
+            </MDBNavbar>
         </header>
-    )
+    );
 }
+
+export default Header;
