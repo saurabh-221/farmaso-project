@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../database/models/user')
 const passport = require('../passport')
+const con=require('../database/sqlConnection')
 
 router.post('/', (req, res) => {
     console.log('user signup');
@@ -17,6 +18,15 @@ router.post('/', (req, res) => {
             })
         }
         else {
+            
+                var insertQuery = "INSERT INTO users ( email, password ) values ('" + username +"','"+ password +"')";
+                
+                con.query(insertQuery, function (error, results, fields) {
+                    if (error) throw error;
+                    res.end(JSON.stringify(results));
+                });
+
+
             const newUser = new User({
                 username: username,
                 password: password
