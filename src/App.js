@@ -6,9 +6,10 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import HomePage from './components/Home/HomePage';
-import ProductPage from './components/Product/ProductPage';
+// import ProductPage from './components/Product/ProductPage';
 import AboutPage from './components/About/AboutPage';
 import ContactPage from './components/contact/ContactPage';
+import ProductPage from './components/Product/ProductPage'
 import SignUpPage from './components/SignUp/SignUpPage';
 import LogInPage from './components/LogIn/LogInPage';
 
