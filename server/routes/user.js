@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
         }
         else {
             
-                var insertQuery = "INSERT INTO users ( email, password ) values ('" + username +"','"+ password +"')";
+                var insertQuery = "INSERT INTO user ( username, password ) values ('" + username +"','"+ password +"')";
                 
                 con.query(insertQuery, function (error, results, fields) {
                     if (error) throw error;
