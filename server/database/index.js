@@ -1,4 +1,7 @@
 //Connect to Mongo database
+         console.log('error connecting to Mongo: ')
+// mongodb connection successfully added after removing any bud hahaha quit happy now"
+
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
