@@ -34,7 +34,7 @@ function Header() {
                         <MDBNavLink to="/log-in">LogIn</MDBNavLink>
                     </MDBNavItem>
                 </MDBNavbarNav>
-                <MDBNavbarNav right>
+                {/* <MDBNavbarNav right>
                     <MDBNavItem>
                         <MDBFormInline waves>
                             <div className="md-form my-0">
@@ -47,7 +47,7 @@ function Header() {
                             </div>
                         </MDBFormInline>
                     </MDBNavItem>
-                </MDBNavbarNav>
+                </MDBNavbarNav> */}
             </MDBNavbar>
         </header>
     );

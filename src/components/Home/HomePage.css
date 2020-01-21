@@ -23,3 +23,16 @@
     margin: auto;
     /* margin-left: 300px; */
   }
+
+
+
+  .navbar-brand{
+    margin-left: 80px;
+  }
+
+  .navbar-nav{
+    margin: auto;
+  }
+  .nav-item{
+    margin-left: 160px;
+  }
