@@ -1,9 +1,12 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBIcon, MDBTooltip,  MDBBadge, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBBtn } from "mdbreact";
+import AddProduct from './AddProduct'
 
 const ProductPage = () => {
   return (
     <section className="text-center my-5">
+      <h2>Add New Product</h2>
+      <AddProduct/>
       <h2 className="h1-responsive font-weight-bold text-center my-5">
         Our bestsellers
       </h2>
@@ -236,6 +239,9 @@ const ProductPage = () => {
           </MDBCard>
         </MDBCol>
       </MDBRow>
+      {/* <Switch>
+          <Route path="/product/add" component={AddProduct}/>
+      </Switch> */}
     </section>
   );
 }

@@ -1,51 +1,33 @@
-const con=require('./connection/sqlConnection')
-const app=require('./expressFile')
-
-// for displaying items on the home page when user is logged-off
-// Will only display him 12 items
-// for viewing the rest of the items ask him for log-in
-app.get('/home', function(req,res){
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
-    con.query(Item.getFirstTwelveItems(), function(error, results,fields){
+const con = require('../server/database/sqlConnection')
+const app = require('../server/server')
+const Item = require('./item')
+app.get('/product', function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080/product');
+    con.query(Item.getAllProducts(), function (error, results) {
+        console.log(error)
         if (error) throw error;
         res.end(JSON.stringify(results));
     })
 })
-
-// When user registers and logins then he can view all items according to a particular location
-app.get('/home/:Location', function(req,res){
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080/:Location');
-    con.query(Item.getFirstTwelveItems(), [req.params.Location],function(error, results,fields){
+app.get('/product/:p_Id', function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080/product/:p_Id');
+    con.query(Item.getSingleProduct(req.params.p_Id), function (error, results) {
         if (error) throw error;
         res.end(JSON.stringify(results));
     })
 })
-
-// When user clicks on a particular item he is able to see details about it along with some information about vendor
-app.get('/home/:Item_Id', function(req,res){
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080/:Item_Id');
-    con.query(Item.itemDetails(), function(error, results,fields){
-        if (error) throw error;
+app.post('/product', (req, res) => {
+    const newItem = req.body;
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080/product');
+    con.query(Item.addProduct(), newItem, (error, results) => {
+        if(error) throw error;
         res.end(JSON.stringify(results));
     })
 })
-
-// When user clicks on a particular item he is able to see details about it along with some information about vendor
-app.get('/home/:Item_Id', function(req,res){
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080/:Item_Id');
-    con.query(Item.itemDetails(), function(error, results,fields){
-        if (error) throw error;
+app.delete('/product/:p_Id', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080/product/:p_Id');
+    con.query(Item.deleteProductById(req.params.p_Id), (error, results) => {
+        if(error) throw error;
         res.end(JSON.stringify(results));
     })
 })
-
-// get all products inside the cart of a particular lendor
-// When user clicks on a particular item he is able to see details about it along with some information about vendor
-app.get('/home/:Lender_Id', function(req,res){
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080/:Lender_Id');
-    con.query(Item.itemsInLenderCart(), function(error, results,fields){
-        if (error) throw error;
-        res.end(JSON.stringify(results));
-    })
-})
-

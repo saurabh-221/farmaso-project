@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MDBMask, MDBRow, MDBCol, MDBBtn, MDBView, MDBContainer, MDBCard, MDBCardBody, MDBIcon } from "mdbreact";
+import { Link } from 'react-router-dom'
 
 import './HomePage.css';
 
@@ -23,7 +24,7 @@ class HomePage extends Component {
               <MDBRow>
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">
-                    Make purchases with our app{" "}
+                    Make money using Farmaso
                   </h1>
                   <hr className="hr-light" />
                   <h6 className="mb-4">
@@ -32,7 +33,9 @@ class HomePage extends Component {
                     veniam sapiente, fugiat! Commodi sequi non animi ea dolor
                     molestiae iste.
                   </h6>
-                  <MDBBtn color="white">Download</MDBBtn>
+                  <Link to="/product">
+                    <MDBBtn color="white">Add Product</MDBBtn>
+                  </Link>
                   <MDBBtn outline color="white">
                     Learn More
                   </MDBBtn>
@@ -87,7 +90,7 @@ https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg
                 <h5 className="font-weight-bold mt-4 mb-3">Saurabh Jain</h5>
                 <p className="text-uppercase blue-text">Software Developer</p>
                 <p className="grey-text">
-                ----------------- Ex-GOOGLE, Ex-FACEBOOK ------------------------------------------------------------------------------------------------------------------------
+                  ----------------- Ex-GOOGLE, Ex-FACEBOOK ------------------------------------------------------------------------------------------------------------------------
               </p>
                 <ul className="list-unstyled mb-0">
                   <a href="#!" className="p-2 fa-lg">
@@ -111,7 +114,7 @@ https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg
                 <p className="text-uppercase blue-text">Software Developer</p>
                 <p className="grey-text">
                   ----------------- Ex-APPLE, Ex-MICROSOFT ------------------------------------------------------------------------------------------------------------------------
-                  
+
               </p>
                 <ul className="list-unstyled mb-0">
                   <a href="#!" className="p-2 fa-lg">
@@ -131,91 +134,91 @@ https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg
 
 
         <section className="text-center my-5">
-      <h2 className="h1-responsive font-weight-bold text-center my-5">
-        Our bestsellers
+          <h2 className="h1-responsive font-weight-bold text-center my-5">
+            Our bestsellers
       </h2>
-      <p className="grey-text text-center w-responsive mx-auto mb-5">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-        error amet numquam iure provident voluptate esse quasi, veritatis
-        totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          <p className="grey-text text-center w-responsive mx-auto mb-5">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+            error amet numquam iure provident voluptate esse quasi, veritatis
+            totam voluptas nostrum quisquam eum porro a pariatur veniam.
       </p>
-      <MDBRow>
-        <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-          <MDBCard collection className="z-depth-1-half">
-            <div className="view zoom">
-              <img
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="stripe dark">
-                <a href="#!">
-                  <p>
-                    Red trousers <MDBIcon icon="angle-right" />
-                  </p>
-                </a>
-              </div>
-            </div>
-          </MDBCard>
-        </MDBCol>
-        <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-          <MDBCard collection className="z-depth-1-half">
-            <div className="view zoom">
-              <img
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/8.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="stripe dark">
-                <a href="#!">
-                  <p>
-                    Sweatshirt <MDBIcon icon="angle-right" />
-                  </p>
-                </a>
-              </div>
-            </div>
-          </MDBCard>
-        </MDBCol>
-        <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-          <MDBCard collection className="z-depth-1-half">
-            <div className="view zoom">
-              <img
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/9.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="stripe dark">
-                <a href="#!">
-                  <p>
-                    Accessories <MDBIcon icon="angle-right" />
-                  </p>
-                </a>
-              </div>
-            </div>
-          </MDBCard>
-        </MDBCol>
-        <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-          <MDBCard collection className="z-depth-1-half">
-            <div className="view zoom">
-              <img
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/7.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="stripe dark">
-                <a href="#!">
-                  <p>
-                    Sweatshirt <MDBIcon icon="angle-right" />
-                  </p>
-                </a>
-              </div>
-            </div>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
+          <MDBRow>
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
+              <MDBCard collection className="z-depth-1-half">
+                <div className="view zoom">
+                  <img
+                    src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg"
+                    className="img-fluid"
+                    alt=""
+                  />
+                  <div className="stripe dark">
+                    <a href="#!">
+                      <p>
+                        Red trousers <MDBIcon icon="angle-right" />
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
+              <MDBCard collection className="z-depth-1-half">
+                <div className="view zoom">
+                  <img
+                    src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/8.jpg"
+                    className="img-fluid"
+                    alt=""
+                  />
+                  <div className="stripe dark">
+                    <a href="#!">
+                      <p>
+                        Sweatshirt <MDBIcon icon="angle-right" />
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
+              <MDBCard collection className="z-depth-1-half">
+                <div className="view zoom">
+                  <img
+                    src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/9.jpg"
+                    className="img-fluid"
+                    alt=""
+                  />
+                  <div className="stripe dark">
+                    <a href="#!">
+                      <p>
+                        Accessories <MDBIcon icon="angle-right" />
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
+              <MDBCard collection className="z-depth-1-half">
+                <div className="view zoom">
+                  <img
+                    src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/7.jpg"
+                    className="img-fluid"
+                    alt=""
+                  />
+                  <div className="stripe dark">
+                    <a href="#!">
+                      <p>
+                        Sweatshirt <MDBIcon icon="angle-right" />
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
 
-    
-    </section>
+
+        </section>
 
       </div>
     );

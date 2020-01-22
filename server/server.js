@@ -9,6 +9,9 @@ const app = express()
 const PORT = 8080
 // Route requires
 const user = require('./routes/user')
+const product = require('./routes/products')
+
+// const { getAllProductsReq } = require('../backend/apiOperations');
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -17,7 +20,9 @@ app.use(
 		extended: false
 	})
 )
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended:true
+}))
 
 // Sessions
 app.use(
@@ -35,9 +40,13 @@ app.use(passport.session()) // calls the deserializeUser
 
 
 // Routes
-app.use('/user', user)
+app.use('/user', user);
+
+app.use('/product', product);
 
 // Starting Server 
 app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`)
 })
+
+module.exports = app;
