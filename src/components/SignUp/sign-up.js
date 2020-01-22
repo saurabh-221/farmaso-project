@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import uuid from 'uuid';
 
 class Signup extends Component {
 	constructor() {
@@ -24,31 +23,35 @@ class Signup extends Component {
 		event.preventDefault()
 
 		//request to server to add a new username/password
-		axios.post('/user', {
-			username: this.state.username,
-			password: this.state.password
-		})
-			.then(response => {
-				console.log(response)
-				if (!response.data.errmsg) {
-					console.log('successful signup')
-					// this.setState({ //redirect to login page
-					// 	redirectTo: '/login'
-					// })
-				} else {
-					console.log('username already taken')
-				}
-			}).catch(error => {
-				console.log('signup error: ')
-				console.log(error)
+		const user = {
+			User_Id: uuid(),
+			User_Name: this.state.username,
+			Password: this.state.password
+		}
 
-			})
+		console.log(user)
+		fetch('http://localhost:8080/user', {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(user),
+		}).then(res => res.json()).then(response => {
+			console.log('login response: ')
+			console.log(response)
+			// window.location = " http://10.15.1.37:3000/log-in"
+		}).catch(error => {
+			console.log('login error: ')
+			console.log(error);
+
+		})
 	}
 
 
 	render() {
 		return (
-			<div className="SignupForm">
+			<div className="SignupForm" >
 				<h4 className="new">Sign up</h4>
 				<form className="form-horizontal">
 					<div className="form-group">

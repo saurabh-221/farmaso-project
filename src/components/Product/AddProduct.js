@@ -95,7 +95,6 @@ class AddProduct extends React.Component {
                 onChange={this.changeHandler}
                 type="text"
                 id="defaultFormRegisterPasswordEx4"
-                className="form-control"
                 name='Available'
                 placeholder="Yes / No"
                 required

@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-import axios from 'axios'
+import React, { Component } from 'react';
+import { Redirect, Link } from 'react-router-dom';
 
 class LoginForm extends Component {
     constructor() {
@@ -10,45 +9,40 @@ class LoginForm extends Component {
             password: '',
             redirectTo: null
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault()
         console.log('handleSubmit')
+        const user = {
+            User_Name: this.state.username,
+            Password: this.state.password
+        }
 
-        axios
-            .post('/user/login', {
-                username: this.state.username,
-                password: this.state.password
-            })
-            .then(response => {
-                console.log('login response: ')
-                console.log(response)
-                if (response.status === 200) {
-                    // update App.js state
-                    this.props.updateUser({
-                        loggedIn: true,
-                        username: response.data.username
-                    })
-                    // update the state to redirect to home
-                    this.setState({
-                        redirectTo: '/'
-                    })
-                }
-            }).catch(error => {
-                console.log('login error: ')
-                console.log(error);
+        console.log(user)
+        fetch('http://localhost:8080/login', {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            
+            body: JSON.stringify(user),
+        }).then(res => res.json()).then(response => {
+            console.log('login response: ')
+            console.log(response)
+            // window.location = "http://localhost/"
+        }).catch(error => {
+            console.log('login error: ')
+            console.log(error);
 
-            })
+        })
     }
 
     render() {
@@ -95,6 +89,9 @@ class LoginForm extends Component {
                                 onClick={this.handleSubmit}
                                 type="submit">Login</button>
                         </div>
+                        <Link to="/sign-up">
+                            <p>don't have an account?</p>
+                        </Link>
                     </form>
                 </div>
             )

@@ -6,10 +6,9 @@ const checkUser = (request, response) => {
     connection.query(`select * from User where User_Name = "${user.User_Name}"`, (error, result) => {
         if (error) throw error;
         if (result.length) {
-            // response.send(result[0].Password)
             if (becrypt.compareSync(user.Password, result[0].Password)) {
-                addToSessionTable(result);
-                response.send(`Login successful ${result[0].Item.Id}`);
+                addToSessionTable(result[0]);
+                response.send(`Login successful ${result[0].User_Id}`);
             } else {
                 response.send("Invalid password");
             }
@@ -20,6 +19,7 @@ const checkUser = (request, response) => {
 }
 
 const addToSessionTable = (data) => {
+    console.log(data)
     connection.query(`insert into Session values (${data.User_Id}, "${data.User_Name}", "${data.Password}")`, (error, result) => {
         if(error) throw error;
         console.log('added');

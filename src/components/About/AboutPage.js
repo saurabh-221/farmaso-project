@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol,  MDBBtn, MDBView, MDBContainer, MDBFormInline } from "mdbreact";
+import { MDBMask, MDBRow, MDBCol, MDBView, MDBContainer } from "mdbreact";
 
 class AboutPage extends Component {
   state = {
@@ -15,7 +15,7 @@ class AboutPage extends Component {
   };
 
   render() {
-    const navStyle = { marginTop: "4rem" };
+    // const navStyle = { marginTop: "4rem" };
     const overlay = (
       <div
         id="sidenav-overlay"
