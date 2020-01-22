@@ -87,8 +87,7 @@ https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg
                 <h5 className="font-weight-bold mt-4 mb-3">Saurabh Jain</h5>
                 <p className="text-uppercase blue-text">Software Developer</p>
                 <p className="grey-text">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  ipsa accusantium doloremque rem laudantium totam aperiam.
+                ----------------- Ex-GOOGLE, Ex-FACEBOOK ------------------------------------------------------------------------------------------------------------------------
               </p>
                 <ul className="list-unstyled mb-0">
                   <a href="#!" className="p-2 fa-lg">
@@ -111,8 +110,8 @@ https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg
                 <h5 className="font-weight-bold mt-4 mb-3">Vishnu Vardhan</h5>
                 <p className="text-uppercase blue-text">Software Developer</p>
                 <p className="grey-text">
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                  qui officia deserunt mollit anim est fugiat nulla id eu laborum.
+                  ----------------- Ex-APPLE, Ex-MICROSOFT ------------------------------------------------------------------------------------------------------------------------
+                  
               </p>
                 <ul className="list-unstyled mb-0">
                   <a href="#!" className="p-2 fa-lg">
