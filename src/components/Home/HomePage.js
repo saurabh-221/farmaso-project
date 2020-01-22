@@ -79,14 +79,7 @@ class HomePage extends Component {
           </p>
             <MDBRow>
               <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-                {/* <MDBAvatar
-                tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg(11 kB)
-https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg
-"
-                className="rounded-circle z-depth-1 img-fluid"
-                alt="Sample avatar"
-              /> */}
+                {/* <img src="" className="rounded-circle z-depth-1 img-fluid" alt="Sample avatar"/> */}
                 <h5 className="font-weight-bold mt-4 mb-3">Saurabh Jain</h5>
                 <p className="text-uppercase blue-text">Software Developer</p>
                 <p className="grey-text">

@@ -2,37 +2,27 @@ import React from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
 class AddProduct extends React.Component {
   state = {
-    fname: {
-      value: "Mark",
-      valid: true
-    },
-    lname: {
-      value: "Otto",
-      valid: true
-    },
-    email: {
-      value: "",
-      valid: false
-    },
-    city: {
-      value: "",
-      valid: false
-    },
-    state: {
-      value: "",
-      valid: false
-    },
-    zip: {
-      value: "",
-      valid: false
-    }
+    Item_Name: '',
+    Per_Hour_Charge: '',
+    Date: '',
+    Hours_Used: '',
+    Earned: '',
+    Available: ''
+  };
+
+  submitForm = async (event) => {
+    event.preventDefault();
+    console.log(this.state);
+    this.setState({
+      popup: !this.state.popup
+    });
   };
   changeHandler = event => {
-    this.setState({ [event.target.name]: { value: event.target.value, valid: !!event.target.value } });
+    this.setState({ [event.target.name]: event.target.value });
   };
   render() {
     return (
-      <div>
+      <div className="setForm">
         <form>
           <MDBRow>
             <MDBCol md="4" className="mb-3">
@@ -40,16 +30,16 @@ class AddProduct extends React.Component {
                 htmlFor="defaultFormRegisterNameEx"
                 className="grey-text"
               >
-                First name
+                Item Name
               </label>
               <input
-                value={this.state.fname.value}
-                className={this.state.fname.valid ? "form-control is-valid" : "form-control is-invalid"}
-                name="fname"
+                className='form-control'
+                value={this.state.Item_Name}
+                name="Item_Name"
                 onChange={this.changeHandler}
                 type="text"
                 id="defaultFormRegisterNameEx"
-                placeholder="First name"
+                placeholder="Item name"
                 required
               />
               <div className="valid-feedback">Looks good!</div>
@@ -59,128 +49,60 @@ class AddProduct extends React.Component {
                 htmlFor="defaultFormRegisterEmailEx2"
                 className="grey-text"
               >
-                Last name
+                Per Hour Charge
               </label>
               <input
-                value={this.state.lname.value}
-                className={this.state.lname.valid ? "form-control is-valid" : "form-control is-invalid"}
-                name="lname"
+                className='form-control'
+                value={this.state.Per_Hour_Charge}
+                name='Per_Hour_Charge'
                 onChange={this.changeHandler}
                 type="text"
                 id="defaultFormRegisterEmailEx2"
-                placeholder="Last name"
+                placeholder="Per Hour Charge"
                 required
               />
               <div className="valid-feedback">Looks good!</div>
-            </MDBCol>
-            <MDBCol md="4" className="mb-3">
-              <label
-                htmlFor="defaultFormRegisterConfirmEx3"
-                className="grey-text"
-              >
-                Email
-              </label>
-              <input
-                value={this.state.email.value}
-                className={this.state.email.valid ? "form-control is-valid" : "form-control is-invalid"}
-                onChange={this.changeHandler}
-                type="email"
-                id="defaultFormRegisterConfirmEx3"
-                name="email"
-                placeholder="Your Email address"
-              />
-              <small id="emailHelp" className="form-text text-muted">
-                We'll never share your email with anyone else.
-              </small>
             </MDBCol>
           </MDBRow>
           <MDBRow>
             <MDBCol md="4" className="mb-3">
               <label
-                htmlFor="defaultFormRegisterPasswordEx4"
+                htmlFor="defaultFormRegisterConfirmEx3"
                 className="grey-text"
               >
-                City
+                Date
               </label>
               <input
-                value={this.state.city.value}
-                className={this.state.city.valid ? "form-control is-valid" : "form-control is-invalid"}
+                className='form-control'
+                value={this.state.Date}
                 onChange={this.changeHandler}
-                type="text"
-                id="defaultFormRegisterPasswordEx4"
-                name="city"
-                placeholder="City"
-                required
+                type="date"
+                id="defaultFormRegisterConfirmEx3"
+                name="Date"
+                placeholder="Enter start date"
               />
-              <div className="invalid-feedback">
-                Please provide a valid city.
-              </div>
-              <div className="valid-feedback">Looks good!</div>
             </MDBCol>
             <MDBCol md="4" className="mb-3">
               <label
                 htmlFor="defaultFormRegisterPasswordEx4"
                 className="grey-text"
               >
-                State
+                Product Available
               </label>
               <input
-                value={this.state.state.value}
-                className={this.state.state.valid ? "form-control is-valid" : "form-control is-invalid"}
-                onChange={this.changeHandler}
-                type="text"
-                id="defaultFormRegisterPasswordEx4"
-                name="state"
-                placeholder="State"
-                required
-              />
-              <div className="invalid-feedback">
-                Please provide a valid state.
-              </div>
-              <div className="valid-feedback">Looks good!</div>
-            </MDBCol>
-            <MDBCol md="4" className="mb-3">
-              <label
-                htmlFor="defaultFormRegisterPasswordEx4"
-                className="grey-text"
-              >
-                Zip
-              </label>
-              <input
-                value={this.state.zip.value}
-                className={this.state.zip.valid ? "form-control is-valid" : "form-control is-invalid"}
+                className='form-control'
+                value={this.state.Available}
                 onChange={this.changeHandler}
                 type="text"
                 id="defaultFormRegisterPasswordEx4"
                 className="form-control"
-                name="zip"
-                placeholder="Zip"
+                name='Available'
+                placeholder="Yes / No"
                 required
               />
-              <div className="invalid-feedback">
-                Please provide a valid zip.
-              </div>
-              <div className="valid-feedback">Looks good!</div>
             </MDBCol>
           </MDBRow>
-          <MDBCol md="4" className="mb-3">
-            <div className="custom-control custom-checkbox pl-3">
-              <input
-                className="custom-control-input"
-                type="checkbox"
-                value=""
-                id="invalidCheck"
-                required
-              />
-              <label className="custom-control-label" htmlFor="invalidCheck">
-                Agree to terms and conditions
-              </label>
-              <div className="invalid-feedback">
-                You must agree before submitting.
-              </div>
-            </div>
-          </MDBCol>
-          <MDBBtn color="primary" type="submit">
+          <MDBBtn color="primary" type="submit" onClick={this.submitForm}>
             Submit Form
           </MDBBtn>
         </form>
