@@ -1,102 +1,100 @@
-.space{
-    height: 30px;
+.space {
+  height: 30px;
 }
-
 
 .App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
-  }
-  
-  .App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-  }
-  
-  .App-title {
-    font-size: 1.5em;
-  }
-  
-  .App-intro {
-    font-size: large;
-  }
-  
-  .navbar {
-   
-    margin-top: auto;
-    
-  }
-  #top-filler {
-    margin-bottom: auto;
-  }
-  
-  #nav-container {
-    align-items: flex-end;
-  }
-  
-  @keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
-  .form-horizontal{
-      /* top: 100px; */
-      /* margin: auto; */
-      width: 500px;
-      margin-top: 50px;
-      margin-left: 680px;
-      height: 520px;
-      align-items: center;
-      border: solid #222;
-  }
-
-  .form-label{
-      margin-left: 190px;
-      margin-top: 60px;
-  }
-
-  .form-input{
-    margin-left: 130px;
-    margin-top: 30px;
+  text-align: center;
 }
 
-.new{
-    margin-top: 30px;
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
 }
 
-.btn-primary{
-    margin-left: 50px;
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
 }
 
-.yoo{
-    margin-top: 50px;
-    width: 150px;
-    height: 30px;
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-}
-.view{
-    top: -14px;
-}
-.my-5{
-    margin: auto;
-    width: 1500px;
+.App-title {
+  font-size: 1.5em;
 }
 
-.row{
-    margin-left: 0;
-    margin: auto;
-    justify-content: center;
-    
+.App-intro {
+  font-size: large;
 }
-.product-container{
+
+.navbar {
+  margin-top: auto;
+}
+#top-filler {
+  margin-bottom: auto;
+}
+
+#nav-container {
+  align-items: flex-end;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form-horizontal {
+  width: 500px;
+  margin-top: 50px;
+  margin-left: 680px;
+  height: 520px;
+  align-items: center;
+  border: solid #222;
+}
+
+.form-label {
+  margin-left: 190px;
+  margin-top: 60px;
+}
+
+.form-input {
+  margin-left: 130px;
+  margin-top: 30px;
+}
+
+.new {
+  margin-top: 30px;
+}
+
+.btn-primary {
+  margin-left: 50px;
+}
+
+.yoo {
+  margin-top: 50px;
+  width: 150px;
+  height: 30px;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.view {
+  top: -14px;
+}
+.my-5 {
+  margin: auto;
+  width: 1500px;
+}
+
+.row {
+  margin-left: 0;
+  margin: auto;
+  justify-content: center;
+}
+.product-container {
   display: grid;
   width: 80%;
   margin-left: 10%;
@@ -104,10 +102,46 @@
   grid-template-columns: auto auto auto;
 }
 
-.product-card{
+.product-card {
   text-align: start;
   background: #f4f4f4;
   height: 100px;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+.single-product {
+  margin: 8% 0 8% 0;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin-left: 10%;
+  width: 80%;
+  grid-gap: 15px;
+}
+
+.single-img{
+  background-color: #f4f4f4;
+  height: 350px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.single-details {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: start;
+}
+.single-btn {
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  width: 150px;
+  background-color: chocolate;
+  font-size: large;
+}
+
+.back{
+  background: black;
 }

@@ -36,12 +36,13 @@ class Header extends Component {
                 </MDBNavItem>
             </MDBNavbarNav>);
         } else {
+            const id =sessionStorage.getItem('id');
             buttons = (<MDBNavbarNav right>
                 <MDBNavItem>
-                    <MDBNavLink to="/cart">Cart</MDBNavLink>
+                    <MDBNavLink to={`/${id}/cart`}>Cart</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
-                    <MDBNavLink to="/order">Order</MDBNavLink>
+                    <MDBNavLink to={`/${id}/order`}>Order</MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
                     <MDBNavLink to="/" onClick={this.logOut}>Log Out</MDBNavLink>

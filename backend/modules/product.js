@@ -9,7 +9,7 @@ const getAllProducts = (request, response) => {
 
 const getProductById = (request, response) => {
     const id = request.params.p_Id;
-    connection.query(`select * from Product where Item_Id`, (error, result) => {
+    connection.query(`select Item_ID, User_Name, Item_Name, PerHourCharge, StartDate, HoursUsed, MoneyEarned, Available from Product join User on Product.User_Id = User.User_Id where Product.Item_Id = "${id}"`, (error, result) => {
         if (error) throw error;
         response.send(JSON.stringify(result));
     })
@@ -31,7 +31,7 @@ const deleteProductById = (request, response) => {
     });
 }
 
-module.exports ={
+module.exports = {
     getAllProducts,
     getProductById,
     addProduct,

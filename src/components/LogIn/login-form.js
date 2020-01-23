@@ -38,12 +38,12 @@ class LoginForm extends Component {
                 alert(response.msg);
             } else {
                 console.log('login succesfull');
+                sessionStorage.setItem('id', response.id);
                 alert('login succesfull')
                 this.setState({
                     redirectTo: (<Redirect to="/"/>)
                 })
                 this.props.updateUser(true);
-                sessionStorage.setItem('id', response.id);
             }
         }).catch(error => {
             console.log('login error: ')

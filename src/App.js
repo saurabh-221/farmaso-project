@@ -10,6 +10,7 @@ import ContactPage from './components/contact/ContactPage';
 import ProductPage from './components/Product/ProductPage'
 import Signup from './components/SignUp/sign-up'
 import LoginForm from './components/LogIn/login-form'
+import SingleProduct from "./components/Product/SingleProduct";
 
 class App extends Component {
   constructor() {
@@ -30,17 +31,20 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Header loggedIn = {this.state.loggedIn} updateUser = {this.updateUser}/>
+          <Header loggedIn={this.state.loggedIn} updateUser={this.updateUser} />
           <div className="space"></div>
           <Switch>
             <Route path="/" component={HomePage} exact />
-            <Route path="/product" component={ProductPage} />
+            <Route path="/product" component={ProductPage} exact />
             <Route path="/about-us" component={AboutPage} />
             <Route path="/contact" component={ContactPage} />
             <Route path="/log-in" component={() => <LoginForm updateUser={this.updateUser} />} />
-            <Route path="/sign-Up" component={() => <Signup />} />
+            <Route path="/sign-Up" component={Signup} />
+            <Route path="/product/:p_Id" component={SingleProduct} />
+            <Route path="/:id/cart" component = {() => <div>CartPage</div>}/>
+            <Route path="/:id/order" component = {() => <div>orderPage</div>}/>
           </Switch>
-          <Footer loggedIn = {this.state.loggedIn} updateUser = {this.updateUser}/>
+          <Footer loggedIn={this.state.loggedIn} updateUser={this.updateUser} />
         </div>
       </BrowserRouter>
 
