@@ -52,71 +52,6 @@ class HomePage extends Component {
           </MDBMask>
         </MDBView>
 
-        <MDBContainer>
-          <MDBRow className="py-5">
-            <MDBCol md="12" className="text-center">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-        <MDBCard className="my-5 px-5 pb-5 text-center">
-          <MDBCardBody>
-            <h2 className="h1-responsive font-weight-bold my-5">
-              Our amazing team
-          </h2>
-            <p className="grey-text w-responsive mx-auto mb-5">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-              error amet numquam iure provident voluptate esse quasi, veritatis
-              totam voluptas nostrum quisquam eum porro a pariatur veniam.
-          </p>
-            <MDBRow>
-              <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-                <h5 className="font-weight-bold mt-4 mb-3">Saurabh Jain</h5>
-                <p className="text-uppercase blue-text">Software Developer</p>
-                <p className="grey-text">
-                  ----------------- Ex-GOOGLE, Ex-FACEBOOK ------------------------------------------------------------------------------------------------------------------------
-              </p>
-                <ul className="list-unstyled mb-0">
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="facebook-f" className="blue-text" />
-                  </a>
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="instagram" className="blue-text" />
-                  </a>
-                </ul>
-              </MDBCol>
-              <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-                <h5 className="font-weight-bold mt-4 mb-3">Vishnu Vardhan</h5>
-                <p className="text-uppercase blue-text">Software Developer</p>
-                <p className="grey-text">
-                  ----------------- Ex-APPLE, Ex-MICROSOFT ------------------------------------------------------------------------------------------------------------------------
-
-              </p>
-                <ul className="list-unstyled mb-0">
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="facebook-f" className="blue-text" />
-                  </a>
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="instagram" className="blue-text" />
-                  </a>
-                  <a href="#!" className="p-2 fa-lg">
-                    <MDBIcon fab icon="dribbble" className="blue-text" />
-                  </a>
-                </ul>
-              </MDBCol>
-            </MDBRow>
-          </MDBCardBody>
-        </MDBCard>
-
-
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold text-center my-5">
             Our bestsellers
@@ -159,6 +94,53 @@ class HomePage extends Component {
               </div>
             </Link>
           </div>
+          <MDBCard className="my-5 px-5 pb-5 text-center">
+            <MDBCardBody>
+              <h2 className="h1-responsive font-weight-bold my-5">
+                Our amazing team
+          </h2>
+              <p className="grey-text w-responsive mx-auto mb-5">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+                error amet numquam iure provident voluptate esse quasi, veritatis
+                totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          </p>
+              <MDBRow>
+                <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+                  <h5 className="font-weight-bold mt-4 mb-3">Saurabh Jain</h5>
+                  <p className="text-uppercase blue-text">Software Developer</p>
+                  <p className="grey-text">
+                   B.Tech(CSE)
+              </p>
+                  <ul className="list-unstyled mb-0">
+                    <a href="#!" className="p-2 fa-lg">
+                      <MDBIcon fab icon="facebook-f" className="blue-text" />
+                    </a>
+                    <a href="#!" className="p-2 fa-lg">
+                      <MDBIcon fab icon="instagram" className="blue-text" />
+                    </a>
+                  </ul>
+                </MDBCol>
+                <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+                  <h5 className="font-weight-bold mt-4 mb-3">Vishnu Vardhan</h5>
+                  <p className="text-uppercase blue-text">Software Developer</p>
+                  <p className="grey-text">
+                    B.E(ECE)
+              </p>
+                  <ul className="list-unstyled mb-0">
+                    <a href="#!" className="p-2 fa-lg">
+                      <MDBIcon fab icon="facebook-f" className="blue-text" />
+                    </a>
+                    <a href="#!" className="p-2 fa-lg">
+                      <MDBIcon fab icon="instagram" className="blue-text" />
+                    </a>
+                    <a href="#!" className="p-2 fa-lg">
+                      <MDBIcon fab icon="dribbble" className="blue-text" />
+                    </a>
+                  </ul>
+                </MDBCol>
+              </MDBRow>
+            </MDBCardBody>
+          </MDBCard>
         </section>
       </div>
     );

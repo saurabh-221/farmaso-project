@@ -32,12 +32,10 @@ class LoginForm extends Component {
 
             body: JSON.stringify(user),
         }).then(res => res.json()).then(response => {
-            console.log('login response: ')
             if (response.msg !== "Login successful") {
                 console.log(response.msg);
                 alert(response.msg);
             } else {
-                console.log('login succesfull');
                 sessionStorage.setItem('id', response.id);
                 alert('login succesfull')
                 this.setState({

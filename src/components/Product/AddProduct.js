@@ -8,7 +8,9 @@ class AddProduct extends React.Component {
     Item_Name: '',
     Per_Hour_Charge: '',
     Date: '',
-    Available: '',
+    CityOrTaluk: '',
+    Distruct: '',
+    State: '',
     redirect: '',
   };
 
@@ -27,7 +29,9 @@ class AddProduct extends React.Component {
       Item_Name: this.state.Item_Name,
       PerHourCharge: this.state.Per_Hour_Charge,
       StartDate: this.state.Date,
-      Available: this.state.Available,
+      CityOrTaluk: this.state.CityOrTaluk,
+      District: this.state.Distruct,
+      State: this.state.State,
     }
     if (!sessionStorage.getItem('id')) {
       this.setState({
@@ -41,7 +45,9 @@ class AddProduct extends React.Component {
           User_Id: sessionStorage.getItem('id'),
           HoursUsed: 0,
           MoneyEarned: 0,
+          Available: "Yes"
         }, product);
+        // console.log(newProduct)
         fetch('http://localhost:8080/product', {
           method: "POST",
           headers: {
@@ -129,27 +135,63 @@ class AddProduct extends React.Component {
                 placeholder="Enter start date"
               />
             </MDBCol>
+          </MDBRow>
+          <MDBRow>
             <MDBCol md="4" className="mb-3">
               <label
                 htmlFor="defaultFormRegisterPasswordEx4"
                 className="grey-text"
               >
-                Product Available
+                City/Taluk
               </label>
-              <select
+              <input
                 className='form-control'
-                value={this.state.Available}
+                value={this.state.CityOrTaluk}
                 onChange={this.changeHandler}
                 type="text"
                 id="defaultFormRegisterPasswordEx4"
-                name='Available'
-                placeholder="Yes / No"
+                name='CityOrTaluk'
+                placeholder="City / Taluk"
                 required
+              />
+            </MDBCol>
+            <MDBCol md="4" className="mb-3">
+              <label
+                htmlFor="defaultFormRegisterPasswordEx4"
+                className="grey-text"
               >
-                <option disabled selected value="">select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </select>
+                Distruct
+              </label>
+              <input
+                className='form-control'
+                value={this.state.Distruct}
+                onChange={this.changeHandler}
+                type="text"
+                id="defaultFormRegisterPasswordEx5"
+                name='Distruct'
+                placeholder="Distruct"
+                required
+              />
+            </MDBCol>
+          </MDBRow>
+          <MDBRow>
+          <MDBCol md="4" className="mb-3">
+              <label
+                htmlFor="defaultFormRegisterPasswordEx4"
+                className="grey-text"
+              >
+                State
+              </label>
+              <input
+                className='form-control'
+                value={this.state.State}
+                onChange={this.changeHandler}
+                type="text"
+                id="defaultFormRegisterPasswordEx6"
+                name='State'
+                placeholder="state"
+                required
+              />
             </MDBCol>
           </MDBRow>
           <MDBBtn color="primary" type="submit" onClick={this.submitForm}>

@@ -11,6 +11,7 @@ import ProductPage from './components/Product/ProductPage'
 import Signup from './components/SignUp/sign-up'
 import LoginForm from './components/LogIn/login-form'
 import SingleProduct from "./components/Product/SingleProduct";
+import Cart from './components/cart/Cart'
 
 class App extends Component {
   constructor() {
@@ -41,7 +42,7 @@ class App extends Component {
             <Route path="/log-in" component={() => <LoginForm updateUser={this.updateUser} />} />
             <Route path="/sign-Up" component={Signup} />
             <Route path="/product/:p_Id" component={SingleProduct} />
-            <Route path="/:id/cart" component = {() => <div>CartPage</div>}/>
+            <Route path="/:id/cart" component = {Cart}/>
             <Route path="/:id/order" component = {() => <div>orderPage</div>}/>
           </Switch>
           <Footer loggedIn={this.state.loggedIn} updateUser={this.updateUser} />

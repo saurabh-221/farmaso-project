@@ -145,3 +145,19 @@
 .back{
   background: black;
 }
+
+.cart{
+  margin: 2% 0 0 10%;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 15px;
+}
+.cart-item{
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.del{
+  background-color: red;
+}

@@ -19,7 +19,6 @@ class ProductPage extends Component {
         data: response
       })
     }).catch(error => {
-      console.log('login error: ')
       console.log(error);
     })
   }
@@ -41,7 +40,7 @@ class ProductPage extends Component {
           totam voluptas nostrum quisquam eum porro a pariatur veniam.
       </p>
         <div className="product-container">
-          {this.state.data.map(product => <div className="product-card">
+          {this.state.data.map((product, index) => <div className="product-card" key = {index}>
             <Link to={`/product/${product.Item_Id}`} >
               <h2>{product.Item_Name}</h2>
             </Link>

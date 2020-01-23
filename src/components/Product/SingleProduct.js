@@ -19,7 +19,6 @@ class SingleProduct extends Component {
             this.setState({
                 data: response[0]
             });
-            // this.getUserName(response[0]);
         }).catch(error => {
             console.log('login error: ')
             console.log(error);
@@ -30,11 +29,32 @@ class SingleProduct extends Component {
     addToCart = () => {
         if (!sessionStorage.getItem('id')) {
             this.setState({
-                redirect: (<Redirect to="/log-in"/>)
+                redirect: (<Redirect to="/log-in" />)
             })
         } else {
-            console.log('Add to cart');
-            alert('add to cart')
+            const itemIds = {
+                Item_Id: this.state.data.Item_Id,
+                User_Id: sessionStorage.getItem('id'),
+                Vender_Id: this.state.data.User_Id,
+                Item_Name: this.state.data.Item_Name,
+                PerHourCharge: this.state.data.PerHourCharge,
+                Hours: 1,
+            }
+            fetch(`http://localhost:8080/cart-item`, {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(itemIds),
+            }).then(res => res.json()).then(result => {
+                if (result.msg) {
+                    alert(result.msg)
+                }
+                console.log(result);
+            }).catch(error => {
+                console.log(error);
+            })
         }
     }
 
@@ -47,7 +67,7 @@ class SingleProduct extends Component {
                     <p><b>Lender:</b>{this.state.data.User_Name}</p>
                     <p><b>charge per hour:</b>{this.state.data.PerHourCharge}</p>
                     <p><b>Available:</b>{this.state.data.Available}</p>
-                    <p><b>Location:</b>{this.state.data.Location}</p>
+                    <p><b>Location:</b>{`${this.state.data.CityOrTaluk}, ${this.state.data.District}, ${this.state.data.State}`}</p>
                     <button className="single-btn" onClick={this.addToCart}>Add to Cart</button>
                     <Link to="/product">
                         <button className="single-btn back">Back</button>
