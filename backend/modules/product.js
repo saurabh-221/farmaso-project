@@ -17,7 +17,7 @@ const getProductById = (request, response) => {
 
 const addProduct = (request, response) => {
     const newProduct = request.body;
-    connection.query(`insert into Product value (${newProduct.Item_Id}, ${newProduct.User_Id}, "${newProduct.Item_Name}", ${newProduct.PerHourCharge}, "${newProduct.StartDate}", ${newProduct.HoursUsed}, ${newProduct.MoneyEarned}, "${newProduct.Available}")`, (error, result) => {
+    connection.query(`insert into Product value ("${newProduct.Item_Id}", "${newProduct.User_Id}", "${newProduct.Item_Name}", ${newProduct.PerHourCharge}, "${newProduct.StartDate}", ${newProduct.HoursUsed}, ${newProduct.MoneyEarned}, "${newProduct.Available}")`, (error, result) => {
         if (error) throw error;
         response.send(JSON.stringify(result));
     });

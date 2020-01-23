@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
@@ -21,47 +20,27 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    // this.getUser()
-  }
-
-  updateUser = userObject => {
-    this.setState(userObject)
-  }
-
-  getUser = () => {
-    axios.get('/user/').then(response => {
-      if (response.data.user) {
-        this.setState({
-          loggedIn: true,
-          username: response.data.user.username
-        })
-      } else {
-        this.setState({
-          loggedIn: false,
-          username: null
-        })
-      }
+  updateUser = (data) => {
+    this.setState({
+      loggedIn: data,
     })
   }
 
   render() {
     return (
-
       <BrowserRouter>
         <div className="App">
-          <Header />
+          <Header loggedIn = {this.state.loggedIn} updateUser = {this.updateUser}/>
           <div className="space"></div>
           <Switch>
             <Route path="/" component={HomePage} exact />
             <Route path="/product" component={ProductPage} />
             <Route path="/about-us" component={AboutPage} />
             <Route path="/contact" component={ContactPage} />
-            <Route path="/log-in" render={() => <LoginForm updateUser={this.updateUser} />} />
-            <Route path="/sign-Up" render={() => <Signup />} />
-
+            <Route path="/log-in" component={() => <LoginForm updateUser={this.updateUser} />} />
+            <Route path="/sign-Up" component={() => <Signup />} />
           </Switch>
-          <Footer />
+          <Footer loggedIn = {this.state.loggedIn} updateUser = {this.updateUser}/>
         </div>
       </BrowserRouter>
 

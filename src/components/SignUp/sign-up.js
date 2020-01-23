@@ -40,11 +40,15 @@ class Signup extends Component {
 		}).then(res => res.json()).then(response => {
 			console.log('login response: ')
 			console.log(response)
-			// window.location = " http://10.15.1.37:3000/log-in"
+			if (response.msg) {
+				console.log(response.msg);
+				alert(response.msg);
+			} else {
+				console.log('signup succesfull');
+			}
 		}).catch(error => {
 			console.log('login error: ')
 			console.log(error);
-
 		})
 	}
 

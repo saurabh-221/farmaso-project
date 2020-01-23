@@ -1,21 +1,65 @@
 import React from "react";
 import { MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import { Redirect } from "react-router-dom";
+import uuid from 'uuid';
+
 class AddProduct extends React.Component {
   state = {
     Item_Name: '',
     Per_Hour_Charge: '',
     Date: '',
-    Hours_Used: '',
-    Earned: '',
-    Available: ''
+    Available: '',
+    redirect: '',
   };
+
+  checkData = (obj) => {
+    for (let prop in obj) {
+      if (!obj[prop]) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   submitForm = async (event) => {
     event.preventDefault();
-    console.log(this.state);
-    this.setState({
-      popup: !this.state.popup
-    });
+    const product = {
+      Item_Name: this.state.Item_Name,
+      PerHourCharge: this.state.Per_Hour_Charge,
+      StartDate: this.state.Date,
+      Available: this.state.Available,
+    }
+    if (!sessionStorage.getItem('id')) {
+      this.setState({
+        redirect: (<Redirect to="/log-in" />)
+      });
+    } else {
+      if (this.checkData(product)) {
+        console.log('added');
+        const newProduct = Object.assign({
+          Item_Id: uuid(),
+          User_Id: sessionStorage.getItem('id'),
+          HoursUsed: 0,
+          MoneyEarned: 0,
+        }, product);
+        fetch('http://localhost:8080/product', {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(newProduct),
+        }).then(res => res.json()).then(data => {
+          console.log('added to backend');
+          alert('Product added');
+          this.props.productAdded();
+        }).catch(error => {
+          console.log(error);
+        })
+      } else {
+        alert('enter all fields')
+      }
+    }
   };
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -32,7 +76,7 @@ class AddProduct extends React.Component {
               >
                 Item Name
               </label>
-              <input
+              <select
                 className='form-control'
                 value={this.state.Item_Name}
                 name="Item_Name"
@@ -41,8 +85,11 @@ class AddProduct extends React.Component {
                 id="defaultFormRegisterNameEx"
                 placeholder="Item name"
                 required
-              />
-              <div className="valid-feedback">Looks good!</div>
+              >
+                <option value="" disabled selected>select</option>
+                <option value="Tractor">Tractor</option>
+                <option value="Harvester">Harvester</option>
+              </select>
             </MDBCol>
             <MDBCol md="4" className="mb-3">
               <label
@@ -61,7 +108,6 @@ class AddProduct extends React.Component {
                 placeholder="Per Hour Charge"
                 required
               />
-              <div className="valid-feedback">Looks good!</div>
             </MDBCol>
           </MDBRow>
           <MDBRow>
@@ -79,6 +125,7 @@ class AddProduct extends React.Component {
                 type="date"
                 id="defaultFormRegisterConfirmEx3"
                 name="Date"
+                required
                 placeholder="Enter start date"
               />
             </MDBCol>
@@ -89,7 +136,7 @@ class AddProduct extends React.Component {
               >
                 Product Available
               </label>
-              <input
+              <select
                 className='form-control'
                 value={this.state.Available}
                 onChange={this.changeHandler}
@@ -98,13 +145,18 @@ class AddProduct extends React.Component {
                 name='Available'
                 placeholder="Yes / No"
                 required
-              />
+              >
+                <option disabled selected value="">select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </MDBCol>
           </MDBRow>
           <MDBBtn color="primary" type="submit" onClick={this.submitForm}>
             Submit Form
           </MDBBtn>
         </form>
+        {this.state.redirect}
       </div>
     );
   }

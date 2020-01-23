@@ -8,29 +8,29 @@ const checkUser = (request, response) => {
         if (result.length) {
             if (becrypt.compareSync(user.Password, result[0].Password)) {
                 addToSessionTable(result[0]);
-                response.send(`Login successful ${result[0].User_Id}`);
+                response.send(JSON.stringify({ msg: `Login successful`, id: result[0].User_Id }));
             } else {
-                response.send("Invalid password");
+                response.send(JSON.stringify({msg:"Invalid password"}));
             }
         } else {
-            response.send("Invalid user name");
+            response.send(JSON.stringify({msg:"Invalid user name"}));
         }
     })
 }
 
 const addToSessionTable = (data) => {
-    console.log(data)
-    connection.query(`insert into Session values (${data.User_Id}, "${data.User_Name}", "${data.Password}")`, (error, result) => {
-        if(error) throw error;
+    connection.query(`insert into Session values ("${data.User_Id}", "${data.User_Name}", "${data.Password}")`, (error, result) => {
+        if (error) throw error;
         console.log('added');
     })
 }
 
 const deleteSession = (request, response) => {
-    const id = request.body.Item_Id;
-    connection.query(`delete from Session where User_Id = ${id}`, (error, result) => {
-        if(error) throw error;
+    const id = request.body.User_Id;
+    connection.query(`delete from Session where User_Id = "${id}"`, (error, result) => {
+        if (error) throw error;
         console.log('delete');
+        response.send(JSON.stringify({msg:'deleted'}))
     })
 }
 

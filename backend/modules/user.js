@@ -20,7 +20,7 @@ const addUser = (request, response) => {
                 response.send(JSON.stringify(data));
             })
         } else {
-            response.send("User name already exists").status(404);
+            response.send(JSON.stringify({ msg: "User name already exists" })).status(404);
         }
     })
 }
