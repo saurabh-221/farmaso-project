@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class Cart extends Component {
 
@@ -77,14 +78,13 @@ class Cart extends Component {
                 console.log(error);
             })
             this.componentDidMount();
-        }else{
+        } else {
             alert('Invalid input in hours')
         }
     }
 
     placeOrder = () => {
-        console.log('order placed');
-        alert('order placed');
+
     }
 
     render() {
@@ -110,8 +110,10 @@ class Cart extends Component {
                 )}
             </div>
             <h4>Total cost:{this.state.cost}</h4>
-            <button className="single-btn" onClick = {this.placeOrder}>Order</button>
-        </div>
+            <Link to={`/${sessionStorage.getItem('id')}/cart/info`}>
+                <button className="single-btn" >Order</button>
+            </Link >
+        </div >
         )
     }
 }

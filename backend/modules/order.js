@@ -8,23 +8,23 @@ const getUserOrder = (request, response) => {
     })
 }
 
-const cheackAvilability = (request, response) => {
-    const Item_Id = request.body.Item_Id;
-    connection.query(`select Available from Product where Item_Id = ${Item_Id}`, (error, result) => {
+const checkAvilability = (request, response) => {
+    const Item_Id = request.params.id;
+    connection.query(`select Available from Product where Item_Id = "${Item_Id}"`, (error, result) => {
         if(error) throw error;
-        response.send(JSON.stringify(response));
+        response.send(JSON.stringify(result));
     })
 }
 
 const addOrder = (request, response) => {
     const { User_Id, Item_Id, Lender_Id, Item_Name, Cost } = request.body
-    connection.query(`insert into Ordertable values ("${Item_Id}", "${User_Id}", "${Lender_Id}", "${Item_Name}", ${cost}, "sucess")`, (error, result) => {
+    connection.query(`insert into Ordertable values ("${Item_Id}", "${User_Id}", "${Lender_Id}", "${Item_Name}", ${Cost}, "sucess")`, (error, result) => {
         if (error) throw error;
-        connection.query('update table Product set Available = "no" where Item_Id = "'+Item_Id+'"', (error, result) => {
+        connection.query('update Product set Available = "no" where Item_Id = "'+Item_Id+'"', (error, innerResult) => {
             if(error) throw error;
-            console.log(result);
+            console.log(innerResult);
         })
-        response.send(JSON.stringify(response));
+        response.send(JSON.stringify(result));
     })
 }
 
@@ -33,9 +33,9 @@ const cancelUserOrder = (request, response) => {
     const { Item_Id } = request.body;
     connection.query(`update table Ordertable set Status = "canceled" where Item_Id = "${Item_Id}" and User_Id = "${User_Id}"`, (error, result) => {
         if (error) throw error;
-        connection.query('update table Product set Available = "yes" where Item_Id = "'+Item_Id+'"', (error, result) => {
+        connection.query('update Product set Available = "yes" where Item_Id = "'+Item_Id+'"', (error, innerResult) => {
             if(error) throw error;
-            console.log(result)
+            console.log(innerResult)
         })
         response.send(JSON.stringify(result));
     })
@@ -43,6 +43,7 @@ const cancelUserOrder = (request, response) => {
 
 module.exports = {
     getUserOrder,
+    checkAvilability,
     addOrder,
     cancelUserOrder,
 }
