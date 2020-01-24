@@ -18,21 +18,32 @@ const addCartItemByUserId = (request, response) => {
                 response.send(JSON.stringify(result));
             })
         } else {
-            response.send(JSON.stringify({msg: "Item already added"}))
+            response.send(JSON.stringify({ msg: "Item already added" }))
         }
     });
 }
 
 const deleteCartItemByUserId = (request, response) => {
-    const cartItem = request.body;
-    connection.query(`delete from Cart where User_Id = "${cartItem.User_Id}" and Item_Id = "${cartItem.Item_Id}"`, (error, result) => {
-        if(error) throw error;
+    const User_Id = request.params.id;
+    const { Item_Id } = request.body;
+    connection.query(`delete from Cart where User_Id = "${User_Id}" and Item_Id = "${Item_Id}"`, (error, result) => {
+        if (error) throw error;
         response.send(JSON.stringify(result))
     });
+}
+
+const updateHours = (request, response) => {
+    const User_Id = request.params.id;
+    const { Item_Id, Hours } = request.body;
+    connection.query(`update Cart set Hours = ${Hours} where User_Id = "${User_Id}" and Item_Id = "${Item_Id}"`, (error, result) => {
+        if(error) throw error;
+        response.send(JSON.stringify(result));
+    })
 }
 
 module.exports = {
     getCartItemsByUserId,
     addCartItemByUserId,
-    deleteCartItemByUserId
+    deleteCartItemByUserId,
+    updateHours
 }
