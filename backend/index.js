@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 
 const { getUserData, addUser } = require('./modules/user');
@@ -9,6 +10,8 @@ const { getCartItemsByUserId, addCartItemByUserId, deleteCartItemByUserId, updat
 const { addOrder, cancelUserOrder, getUserOrder, checkAvilability } = require('./modules/order');
 const { generateBill } = require('./modules/bill');
 
+app.use(cors());
+app.options('*',cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true,

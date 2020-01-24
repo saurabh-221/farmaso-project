@@ -17,16 +17,20 @@ const checkAvilability = (request, response) => {
 }
 
 const addOrder = (request, response) => {
-    const { User_Id, Item_Id, Lender_Id, Item_Name, Cost, Phone, Address } = request.body
-    connection.query(`insert into Ordertable values ("${Item_Id}", "${User_Id}", "${Lender_Id}", "${Item_Name}", ${Cost}, "successful", ${Phone}, "${Address}")`, (error, result) => {
+    const { User_Id, Item_Id, Lender_Id, Item_Name, Cost, Phone, Address, Bill_Id } = request.body
+    connection.query(`insert into Ordertable values ("${Item_Id}", "${User_Id}", "${Lender_Id}", "${Item_Name}", ${Cost}, "successful", ${Phone}, "${Address}", "${Bill_Id}")`, (error, result) => {
         if (error) throw error;
         connection.query('update Product set Available = "no" where Item_Id = "'+Item_Id+'"', (error, innerResult) => {
             if(error) throw error;
             console.log(innerResult);
-        })
+        });
         connection.query(`delete from Cart where Item_Id = "${Item_Id}" and User_Id = "${User_Id}"`, (error, innerResult) => {
             if(error) throw error;
             console.log(innerResult);
+        });
+        connection.query(`insert into Bill values ("${Bill_Id}", "${Item_Name}", ${Cost})`, (error, innerResult) => {
+            if(error) throw error;
+            console.log(innerResult)
         })
         response.send(JSON.stringify(result));
     })

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { MDBBtn } from "mdbreact";
 import { Link } from 'react-router-dom';
+import uuid from 'uuid';
 
 class Info extends Component {
 
@@ -73,6 +74,7 @@ class Info extends Component {
         if (this.checkObj(info)) {
             const products = this.state.products
             let count = 0;
+            const billId = uuid();
             for (let item in products) {
                 if (products[item].Available.toLowerCase() === 'yes') {
                     count++;
@@ -86,6 +88,7 @@ class Info extends Component {
                         Status: "Succesfull",
                         Phone: this.state.phone,
                         Address: this.state.address,
+                        Bill_ID: billId,
                     }
                     console.log(order);
                     fetch('http://localhost:8080/order', {

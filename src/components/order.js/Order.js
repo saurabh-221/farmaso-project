@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { MDBBtn } from "mdbreact";
+import jsPdf from 'jspdf';
 
 class Order extends Component {
 
     state = {
         data: [],
+        cost: 0,
     }
 
     componentDidMount() {
@@ -18,7 +20,6 @@ class Order extends Component {
             this.setState({
                 data: response,
             })
-            console.log(response)
         }).catch(error => {
             console.log(error);
         })
@@ -45,8 +46,41 @@ class Order extends Component {
         this.componentDidMount();
     }
 
-    generateBill = () => {
+    downloadBill = (data) => {
 
+        const pdf = new jsPdf('p', 'pt');
+        pdf.setFontType('bold');
+        pdf.setFont('helvetica');
+        pdf.text("Item Name",100, 50);
+        pdf.text("Cost",250, 50);
+        let y = 100;
+        for (let item of data) {
+            pdf.text(100, y, `${item.Item_Name}`);
+            pdf.text(250, y, `${item.Cost}`);
+            const cost = this.state.cost + item.Cost;
+            this.setState({
+                cost: cost,
+            })
+            y+=50;
+        }
+        pdf.text("Total cost",100, y);
+        pdf.text(`${this.state.cost}`, 250, y);
+        pdf.save('Bill.pdf');
+    }
+
+    generateBill = (event) => {
+        const id = event.target.getAttribute('id');
+        fetch('http://localhost:8080/bill/' + id, {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+        }).then(res => res.json()).then(response => {
+            console.log(response);
+            this.downloadBill(response);
+        }).catch(error => {
+            console.log(error);
+        });
     }
 
     render() {
@@ -68,8 +102,8 @@ class Order extends Component {
                             <td>{item.Item_Name}</td>
                             <td>{item.cost}</td>
                             <td>{item.status}</td>
-                            <td>{(item.status === 'successful') ? (<MDBBtn id={item.Item_Id} color="danger" type="submit" onClick={this.cancelOrder} >Cancel</MDBBtn>) : (<MDBBtn color="primary" type="submit" disabled >Cancel</MDBBtn>)}</td>
-                            <td><MDBBtn color="primary" type="submit" onClick={this.generateBill} >Generate</MDBBtn></td>
+                            <td>{(item.status === 'successful') ? (<MDBBtn id={item.Item_Id} color="danger" type="submit" onClick={this.cancelOrder} >Cancel</MDBBtn>) : (<MDBBtn color="danger" type="submit" disabled >Cancel</MDBBtn>)}</td>
+                            <td><MDBBtn id={item.Bill_Id} color="primary" type="submit" onClick={this.generateBill} >Generate</MDBBtn></td>
                         </tr>)}
                     </tbody>
                 </table>
