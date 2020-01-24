@@ -172,7 +172,12 @@
   margin: 1% 1% 1% 38%;
 }
 
+.order-table{
+  width: 500px;
+}
+
 td {
+  text-align: start;
   border: 1px solid black;
   padding: 5% 25% 5% 20%;
   font-weight: 200;

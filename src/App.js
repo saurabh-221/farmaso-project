@@ -13,6 +13,7 @@ import LoginForm from './components/LogIn/login-form'
 import SingleProduct from "./components/Product/SingleProduct";
 import Cart from './components/cart/Cart'
 import Info from './components/cart/Info';
+import Order from './components/order.js/Order';
 
 class App extends Component {
   constructor() {
@@ -45,7 +46,7 @@ class App extends Component {
             <Route path="/product/:p_Id" component={SingleProduct} />
             <Route path="/:id/cart" component={Cart} exact/>
             <Route path="/:id/cart/info" component={Info} />
-            <Route path="/:id/order" component={() => <div>orderPage</div>} />
+            <Route path="/:id/order" component={Order} />
           </Switch>
           <Footer loggedIn={this.state.loggedIn} updateUser={this.updateUser} />
         </div>

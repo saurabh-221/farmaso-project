@@ -12,7 +12,7 @@ toast.configure();
 function App2() {
   const [product] = React.useState({
     name: "Tesla Roadster",
-    price: 64998.67,
+    price: 1,
     description: "Cool car"
   });
 

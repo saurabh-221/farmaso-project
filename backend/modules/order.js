@@ -17,10 +17,14 @@ const checkAvilability = (request, response) => {
 }
 
 const addOrder = (request, response) => {
-    const { User_Id, Item_Id, Lender_Id, Item_Name, Cost } = request.body
-    connection.query(`insert into Ordertable values ("${Item_Id}", "${User_Id}", "${Lender_Id}", "${Item_Name}", ${Cost}, "sucess")`, (error, result) => {
+    const { User_Id, Item_Id, Lender_Id, Item_Name, Cost, Phone, Address } = request.body
+    connection.query(`insert into Ordertable values ("${Item_Id}", "${User_Id}", "${Lender_Id}", "${Item_Name}", ${Cost}, "successful", ${Phone}, "${Address}")`, (error, result) => {
         if (error) throw error;
         connection.query('update Product set Available = "no" where Item_Id = "'+Item_Id+'"', (error, innerResult) => {
+            if(error) throw error;
+            console.log(innerResult);
+        })
+        connection.query(`delete from Cart where Item_Id = "${Item_Id}" and User_Id = "${User_Id}"`, (error, innerResult) => {
             if(error) throw error;
             console.log(innerResult);
         })
@@ -31,7 +35,7 @@ const addOrder = (request, response) => {
 const cancelUserOrder = (request, response) => {
     const User_Id = request.params.id;
     const { Item_Id } = request.body;
-    connection.query(`update table Ordertable set Status = "canceled" where Item_Id = "${Item_Id}" and User_Id = "${User_Id}"`, (error, result) => {
+    connection.query(`update Ordertable set status = "canceled" where Item_Id = "${Item_Id}" and User_Id = "${User_Id}"`, (error, result) => {
         if (error) throw error;
         connection.query('update Product set Available = "yes" where Item_Id = "'+Item_Id+'"', (error, innerResult) => {
             if(error) throw error;

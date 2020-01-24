@@ -7,6 +7,7 @@ const { checkUser, deleteSession } = require('./modules/login');
 const { getAllProducts, getProductById, addProduct, deleteProductById } = require('./modules/product');
 const { getCartItemsByUserId, addCartItemByUserId, deleteCartItemByUserId, updateHours } = require('./modules/cart');
 const { addOrder, cancelUserOrder, getUserOrder, checkAvilability } = require('./modules/order');
+const { generateBill } = require('./modules/bill');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -39,3 +40,5 @@ app.get('/check/:id', checkAvilability);
 app.get('/order/:id', getUserOrder)
     .post('/order', addOrder)
     .put('/order/:id', cancelUserOrder);
+
+app.get('/bill/:id', generateBill);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MDBBtn } from "mdbreact";
+import { Link } from 'react-router-dom';
 
 class Info extends Component {
 
@@ -70,7 +71,38 @@ class Info extends Component {
             address: this.state.address,
         }
         if (this.checkObj(info)) {
-            alert('order placed');
+            const products = this.state.products
+            let count = 0;
+            for (let item in products) {
+                if (products[item].Available.toLowerCase() === 'yes') {
+                    count++;
+                    const cart = this.state.data[item];
+                    const order = {
+                        Item_Id: cart.Item_Id,
+                        User_Id: cart.User_Id,
+                        Lender_Id: cart.Lender_Id,
+                        Item_Name: cart.Item_Name,
+                        Cost: cart.PerHourCharge * cart.Hours,
+                        Status: "Succesfull",
+                        Phone: this.state.phone,
+                        Address: this.state.address,
+                    }
+                    console.log(order);
+                    fetch('http://localhost:8080/order', {
+                        method: "POST",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(order),
+                    }).then(res => res.json()).then(response => {
+                        console.log(response);
+                    }).catch(error => {
+                        console.log(error);
+                    })
+                }
+            }
+            alert(`order placed for ${count} items`);
         } else {
             alert('Invalid Input');
         }
@@ -109,6 +141,9 @@ class Info extends Component {
                             <input name="address" placeholder="Enter address..." value={this.state.address} onChange={this.onChange} />
                         </div>
                     </div>
+                    <Link to={`/${sessionStorage.getItem('id')}/cart`}>
+                        <MDBBtn color="dark" type="submit">Back</MDBBtn>
+                    </Link>
                     <MDBBtn color="primary" type="submit" onClick={this.onSubmit} >Place Order</MDBBtn>
                 </div>
             </div>
