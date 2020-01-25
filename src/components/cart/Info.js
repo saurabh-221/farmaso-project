@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { MDBBtn } from "mdbreact";
 import { Link } from 'react-router-dom';
 import uuid from 'uuid';
-
+// import App2 from '../Payment/payment'
 class Info extends Component {
 
     state = {
@@ -118,18 +118,18 @@ class Info extends Component {
                     <table className="cart-table">
                         <thead>
                             <tr>
-                                <td><b>Productrs</b></td>
-                                <td><b>Available</b></td>
+                                <td className="increase"><b>Productrs</b></td>
+                                <td className="increase"><b>Available</b></td>
                             </tr>
                         </thead>
                         <tbody>
                             {this.state.products.map((item, index) => <tr key={index}>
-                                <td>{item.name}</td>
-                                <td>{item.Available}</td>
+                                <td className="increase">{item.name}</td>
+                                <td className="increase">{item.Available}</td>
                             </tr>)}
                         </tbody>
                     </table>
-                    <h5>Order will be placed only for available products</h5>
+                    <h5 className="increase-2">Order will be placed only for available products</h5>
                 </div>
                 <div>
                     <div>

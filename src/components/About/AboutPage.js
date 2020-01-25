@@ -38,7 +38,7 @@ class AboutPage extends Component {
                 <MDBCol md="12" className="mb-4 white-text text-center">
                   <h1 class="display-3 mb-0 pt-md-5 pt-5 white-text font-weight-bold" ><span className="indigo-text font-weight-bold">SAURABH</span> AND <span className="indigo-text font-weight-bold">VISHNU</span></h1>
                   <hr className="hr-light my-4" />
-                  <h5 className="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 white-text font-weight-bold">Two bad-boys in the silicon valley</h5>
+                  <h5 className="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 white-text font-weight-bold">Trainees at Mountblue Technologies</h5>
                  
                 </MDBCol>
               </MDBRow>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class Cart extends Component {
 
@@ -7,6 +7,7 @@ class Cart extends Component {
         data: [],
         cost: 0,
         hours: '',
+        redirect: null
     }
 
     componentDidMount() {
@@ -84,13 +85,19 @@ class Cart extends Component {
     }
 
     placeOrder = () => {
-
+        if (!this.state.cost) {
+            alert('Cart is empty');
+        } else {
+            this.setState({
+                redirect: (<Redirect to={`/${sessionStorage.getItem('id')}/cart/info`} />)
+            })
+        }
     }
 
     render() {
 
-        return (<div>
-            <h1>Cart Items</h1>
+        return (<div className="cart-page">
+            <h1 className="car-top">Cart Items</h1>
             <div className="cart">
                 {this.state.data.map((item, index) => <div className="cart-item" key={index}>
                     <div>
@@ -109,10 +116,9 @@ class Cart extends Component {
                 </div>
                 )}
             </div>
-            <h4>Total cost:{this.state.cost}</h4>
-            <Link to={`/${sessionStorage.getItem('id')}/cart/info`}>
-                <button className="single-btn" >Order</button>
-            </Link >
+            <h4 className="cart-top">Total cost:{this.state.cost}</h4>
+            <button className="single-btn" onClick={this.placeOrder}>Order</button>
+            {this.state.redirect}
         </div >
         )
     }

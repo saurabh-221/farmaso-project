@@ -28,10 +28,8 @@ class HomePage extends Component {
                   </h1>
                   <hr className="hr-light" />
                   <h6 className="mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Rem repellendus quasi fuga nesciunt dolorum nulla magnam
-                    veniam sapiente, fugiat! Commodi sequi non animi ea dolor
-                    molestiae iste.
+                    Farmaso is a peer to peer online rental system for lending and renting farming equipments.
+                    Here any farmer or local people can rent their equipments and make money. Any farmer in need of equipments can rent them on hourly basis.
                   </h6>
                   <Link to="/product">
                     <MDBBtn color="white">Add Product</MDBBtn>
@@ -54,79 +52,91 @@ class HomePage extends Component {
 
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold text-center my-5">
-            Our bestsellers
+            Some of our Products
         </h2>
           <p className="grey-text text-center w-responsive mx-auto mb-5">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-            error amet numquam iure provident voluptate esse quasi, veritatis
-            totam voluptas nostrum quisquam eum porro a pariatur veniam.
+            A variety of products are being rented and lented over our web-app. Some of them are been mentioned below.
         </p>
           <div className="product-container">
             <Link to="/product">
               <div className="product-card">
-                <h2>Tractors</h2>
-              </div>
+                </div>
+                <h2 className="equipment">Tractors</h2>
+              
             </Link>
+            <div className="extra-space"></div>
             <Link to="/product">
-              <div className="product-card">
-                <h2>Harvester</h2>
-              </div>
+              <div className="product-card2">
+                </div>
+                <h2 className="equipment">Harvester</h2>
+              
             </Link>
+            <div className="extra-space"></div>
             <Link to="/product">
 
-              <div className="product-card">
-                <h2>Sprayer</h2>
-              </div>
+              <div className="product-card3">
+                </div>
+                <h2 className="equipment">Sprayer</h2>
+              
             </Link>
+            <div className="extra-space"></div>
             <Link to="/product">
-              <div className="product-card">
-                <h2>Tillage</h2>
-              </div>
+              <div className="product-card4">
+                </div>
+                <h2 className="equipment">Tillage</h2>
+              
             </Link>
+            <div className="extra-space"></div>
             <Link to="/product">
-              <div className="product-card">
-                <h2>Sprinklers</h2>
-              </div>
+              <div className="product-card5">
+                </div>
+                <h2 className="equipment">Sprinklers</h2>
+              
             </Link>
+            <div className="extra-space"></div>
             <Link to="/product">
-              <div className="product-card">
-                <h2>Cutters</h2>
-              </div>
+              <div className="product-card6">
+                </div>
+                <h2 className="equipment">Cutters</h2>
+              
             </Link>
           </div>
-          <MDBCard className="my-5 px-5 pb-5 text-center">
+          <MDBCard className="my-5 px-5 pb-5 text-center team-height">
             <MDBCardBody>
               <h2 className="h1-responsive font-weight-bold my-5">
                 Our amazing team
           </h2>
               <p className="grey-text w-responsive mx-auto mb-5">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-                error amet numquam iure provident voluptate esse quasi, veritatis
-                totam voluptas nostrum quisquam eum porro a pariatur veniam.
+                We are working at Mountblue Technologies as trainees. Farmaso is a major project assigned to us. Farmaso is mainly a peer to peer farming equipment rental app
           </p>
               <MDBRow>
                 <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+                <div className="product-card8">
+                  <img src="../images/sss.jpg"></img>
+                  </div>
                   <h5 className="font-weight-bold mt-4 mb-3">Saurabh Jain</h5>
                   <p className="text-uppercase blue-text">Software Developer</p>
                   <p className="grey-text">
                    B.Tech(CSE)
               </p>
-                  <ul className="list-unstyled mb-0">
+                  {/* <ul className="list-unstyled mb-0">
                     <a href="#!" className="p-2 fa-lg">
                       <MDBIcon fab icon="facebook-f" className="blue-text" />
                     </a>
                     <a href="#!" className="p-2 fa-lg">
                       <MDBIcon fab icon="instagram" className="blue-text" />
                     </a>
-                  </ul>
+                  </ul> */}
                 </MDBCol>
                 <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+                <div className="product-card9">
+                  </div>
                   <h5 className="font-weight-bold mt-4 mb-3">Vishnu Vardhan</h5>
                   <p className="text-uppercase blue-text">Software Developer</p>
                   <p className="grey-text">
                     B.E(ECE)
               </p>
-                  <ul className="list-unstyled mb-0">
+                  {/* <ul className="list-unstyled mb-0">
                     <a href="#!" className="p-2 fa-lg">
                       <MDBIcon fab icon="facebook-f" className="blue-text" />
                     </a>
@@ -136,7 +146,7 @@ class HomePage extends Component {
                     <a href="#!" className="p-2 fa-lg">
                       <MDBIcon fab icon="dribbble" className="blue-text" />
                     </a>
-                  </ul>
+                  </ul> */}
                 </MDBCol>
               </MDBRow>
             </MDBCardBody>

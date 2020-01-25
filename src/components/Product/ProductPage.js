@@ -31,14 +31,9 @@ class ProductPage extends Component {
       <section className="text-center my-5">
         <h2>Add New Product</h2>
         <AddProduct productAdded={this.productAdded} />
-        <h2 className="h1-responsive font-weight-bold text-center my-5">
-          Our bestsellers
+        <h2 className="h1-responsive font-weight-bold text-center my-5 p-rent">
+          Products On Rent
       </h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
-      </p>
         <div className="product-container">
           {this.state.data.map((product, index) => <div className="product-card" key = {index}>
             <Link to={`/product/${product.Item_Id}`} >

@@ -124,6 +124,7 @@
   height: 350px;
   border: 1px solid black;
   border-radius: 10px;
+  background-image: url("../src/components/images/Mahindra-Tractor-770x433.jpg");
 }
 
 .single-details {
@@ -147,6 +148,10 @@
 }
 
 .cart {
+  /* padding: 30px; */
+  /* align-items: center; */
+  margin: auto;
+  height: 270px;
   margin: 2% 0 0 10%;
   width: 80%;
   display: grid;
@@ -163,7 +168,8 @@
 }
 
 .address {
-  margin: 8% 0 8% 10%;
+  /* margin-top: 40px; */
+  margin: 2% 0 8% 10%;
   width: 80%;
   min-height: 500px;
 }
@@ -173,7 +179,8 @@
 }
 
 .order-table{
-  width: 500px;
+  margin-left: 25%;
+  margin-top: 5%;
 }
 
 td {
@@ -185,4 +192,74 @@ td {
 
 thead {
   background: orange;
+}
+
+.cart-page{
+  min-height: 600px;
+}
+
+.order {
+  margin:0 0 0 10%;
+  min-height: 600px;
+}
+
+/* .col-md-6{
+  margin-right: 50px;
+} */
+/* .foot-side{
+  margin-right: -1100px;
+}
+
+.foot-left{
+  margin-left: -600px;
+} */
+
+.setForm{
+  height: 500px;
+}
+
+/* .product-container{
+  height: 600px;
+} */
+
+.p-rent{
+  height: 120px;
+}
+
+/* .single-product{
+  justify-content: space-between;
+} */
+/* .single-img{
+  margin-left: -10px;
+}
+.single-details{
+  margin-right: 60px;
+} */
+
+.cart-top{
+  margin-top: 80px;
+}
+.car-top{
+  margin-top: 50px;
+}
+.increase{
+  width: 200px;
+}
+.increase-2{
+  margin-top: 50px;
+}
+
+.increment1{
+  margin-top: 20px;
+}
+.increment2{
+  /* margin: auto;
+  align-items: center; */
+  width: 140px;
+  /* margin-left: 50px; */
+  left: 20px;
+}
+.a1{
+  /* top: 20px; */
+  margin-top: 20px;
 }

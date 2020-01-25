@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink } from "mdbreact";
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
 
@@ -18,7 +19,7 @@ class Header extends Component {
             console.log(data);
             this.props.updateUser(false);
             sessionStorage.clear();
-            alert('Logged Out'); 
+            alert('Logged Out');
         }).catch(error => {
             console.log(error);
         })
@@ -36,7 +37,7 @@ class Header extends Component {
                 </MDBNavItem>
             </MDBNavbarNav>);
         } else {
-            const id =sessionStorage.getItem('id');
+            const id = sessionStorage.getItem('id');
             buttons = (<MDBNavbarNav right>
                 <MDBNavItem>
                     <MDBNavLink to={`/${id}/cart`}>Cart</MDBNavLink>
@@ -59,7 +60,9 @@ class Header extends Component {
                     scrolling
                 >
                     <MDBNavbarBrand>
-                        <strong className="white-text">Farmaso</strong>
+                        <Link to='/' >
+                            <strong className="white-text">Farmaso</strong>
+                        </Link>
                     </MDBNavbarBrand>
                     <MDBNavbarNav left>
                         <MDBNavItem active>

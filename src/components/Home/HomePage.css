@@ -36,3 +36,67 @@
   .nav-item{
     margin-left: 160px;
   }
+
+  .equipment{
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  .product-card{
+    background-image: url("../images/Mahindra-Tractor-770x433.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 190px;
+    border: white;
+  }
+  .product-card2{
+    background-image: url("../images/dasmesh_912_1.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 190px;
+  }
+
+  .product-card3{
+    background-image: url("../images/hand-sprayer-16-ltr-n-500x500.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 190px;
+  }
+
+  .product-card4{
+    background-image: url("../images/tillage-build-callout-r4f027200.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 190px;
+  }
+
+  .product-card5{
+    background-image: url("../images/rollingdice-water-sprinkler.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 190px;
+  }
+
+  .product-card6{
+    background-image: url("../images/039cc8e8b25545c4d929148366583deb.jpeg");
+    background-size: cover;
+    width: 100%;
+    height: 190px;
+  }
+
+  .product-card8{
+    background-image: url("/home/saurabh/farmaso/farmaso-project/src/components/images/sss.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 190px;
+  }
+
+  .product-card9{
+    background-image: url("/home/saurabh/farmaso/farmaso-project/src/components/images/sss.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 190px;
+  }
+ 
+  /* .team-height{
+    top: 500px;
+  } */

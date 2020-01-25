@@ -66,6 +66,9 @@ class Order extends Component {
         pdf.text("Total cost",100, y);
         pdf.text(`${this.state.cost}`, 250, y);
         pdf.save('Bill.pdf');
+        this.setState({
+            cost: 0,
+        })
     }
 
     generateBill = (event) => {
@@ -85,24 +88,24 @@ class Order extends Component {
 
     render() {
         return (
-            <div className="address">
-                <h1>Order History</h1>
-                <table >
+            <div className="address order">
+                <h1 className="a1">Order History</h1>
+                <table className = "order-table">
                     <thead>
-                        <tr>
-                            <td><b>Item Name</b></td>
-                            <td><b>Cost</b></td>
-                            <td><b>Status</b></td>
-                            <td><b>Modify</b></td>
-                            <td><b>Bill</b></td>
+                        <tr className="increment1">
+                            <td className="increment2"><b>Item Name</b></td>
+                            <td className="increment2"><b>Cost</b></td>
+                            <td className="increment2"><b>Status</b></td>
+                            <td className="increment2"><b>Modify</b></td>
+                            <td className="increment2"><b>Bill</b></td>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.data.map((item, index) => <tr key={index}>
-                            <td>{item.Item_Name}</td>
-                            <td>{item.cost}</td>
-                            <td>{item.status}</td>
-                            <td>{(item.status === 'successful') ? (<MDBBtn id={item.Item_Id} color="danger" type="submit" onClick={this.cancelOrder} >Cancel</MDBBtn>) : (<MDBBtn color="danger" type="submit" disabled >Cancel</MDBBtn>)}</td>
+                            <td className="increment2">{item.Item_Name}</td>
+                            <td className="increment2">{item.cost}</td>
+                            <td className="increment2">{item.status}</td>
+                            <td className="increment2">{(item.status === 'successful') ? (<MDBBtn id={item.Item_Id} color="danger" type="submit" onClick={this.cancelOrder} >Cancel</MDBBtn>) : (<MDBBtn color="danger" type="submit" disabled >Cancel</MDBBtn>)}</td>
                             <td><MDBBtn id={item.Bill_Id} color="primary" type="submit" onClick={this.generateBill} >Generate</MDBBtn></td>
                         </tr>)}
                     </tbody>

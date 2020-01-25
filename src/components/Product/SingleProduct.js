@@ -32,29 +32,33 @@ class SingleProduct extends Component {
                 redirect: (<Redirect to="/log-in" />)
             })
         } else {
-            const itemIds = {
-                Item_Id: this.state.data.Item_Id,
-                User_Id: sessionStorage.getItem('id'),
-                Vender_Id: this.state.data.User_Id,
-                Item_Name: this.state.data.Item_Name,
-                PerHourCharge: this.state.data.PerHourCharge,
-                Hours: 1,
-            }
-            fetch(`http://localhost:8080/cart-item`, {
-                method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(itemIds),
-            }).then(res => res.json()).then(result => {
-                if (result.msg) {
-                    alert(result.msg)
+            if (this.state.data.Available === "yes") {
+                const itemIds = {
+                    Item_Id: this.state.data.Item_Id,
+                    User_Id: sessionStorage.getItem('id'),
+                    Vender_Id: this.state.data.User_Id,
+                    Item_Name: this.state.data.Item_Name,
+                    PerHourCharge: this.state.data.PerHourCharge,
+                    Hours: 1,
                 }
-                console.log(result);
-            }).catch(error => {
-                console.log(error);
-            })
+                fetch(`http://localhost:8080/cart-item`, {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(itemIds),
+                }).then(res => res.json()).then(result => {
+                    if (result.msg) {
+                        alert(result.msg)
+                    }
+                    console.log(result);
+                }).catch(error => {
+                    console.log(error);
+                })
+            } else{
+                alert('Item is not Available')
+            }
         }
     }
 

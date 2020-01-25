@@ -49,14 +49,13 @@ class Footer extends Component {
       <MDBFooter color="blue" className="font-small pt-4 mt-4">
         <MDBContainer fluid className="text-center text-md-left">
           <MDBRow>
-            <MDBCol md="6">
+            <MDBCol md="6" className="foot-left">
               <h2 className="title">Farmaso</h2>
               <p>
-                Here you can use rows and columns here to organize your footer
-                content.
+                Make or Save money by Renting farm equipments
             </p>
             </MDBCol>
-            <MDBCol md="6">
+            <MDBCol md="6" className="foot-side">
               <h5 className="title">Links</h5>
               <ul>
                 <li className="list-unstyled">
